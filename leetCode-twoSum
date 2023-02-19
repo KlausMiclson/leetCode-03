@@ -1,0 +1,22 @@
+var twoSum = function(nums, target) {
+    let result = [];
+
+    // Loop over each element of the nums array
+    nums.forEach((num, index) => {
+        // Calculate the complement (the difference between the target and the current element)
+        let complement = target - num;
+
+        // Search for the complement in the array (excluding the current element)
+        let complementIndex = nums.indexOf(complement, index + 1);
+
+        // If the complement is found, add the current index and complement index to the result array
+        if (complementIndex > -1) {
+            result.push(index, complementIndex);
+        }
+    });
+
+    // Return the result array
+    return result;
+};
+
+console.log(twoSum([2,7,11,15], 9)); // should output [0, 1]
